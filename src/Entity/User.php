@@ -51,16 +51,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     private $telephone;
 
     /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $mail;
-
-    /**
-     * @ORM\Column(type="string", length=255)
-     */
-    private $administrateur;
-
-    /**
      * @ORM\Column(type="boolean")
      */
     private $actif;
@@ -186,30 +176,6 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     public function setTelephone(string $telephone): self
     {
         $this->telephone = $telephone;
-
-        return $this;
-    }
-
-    public function getMail(): ?string
-    {
-        return $this->mail;
-    }
-
-    public function setMail(string $mail): self
-    {
-        $this->mail = $mail;
-
-        return $this;
-    }
-
-    public function getAdministrateur(): ?string
-    {
-        return $this->administrateur;
-    }
-
-    public function setAdministrateur(string $administrateur): self
-    {
-        $this->administrateur = $administrateur;
 
         return $this;
     }
