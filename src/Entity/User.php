@@ -54,10 +54,8 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $telephone;
 
-
-
     /**
-     * @ORM\Column(type="boolean")
+     * @ORM\Column(type="boolean", nullable=true)
      */
     private $actif;
 
@@ -75,12 +73,12 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     /**
      * @ORM\ManyToMany(targetEntity=Sortie::class, mappedBy="inscrits")
      */
-    private $SortiesInscrits;
+    private $sortiesInscrits;
 
     public function __construct()
     {
         $this->sorties = new ArrayCollection();
-        $this->SortiesInscrits = new ArrayCollection();
+        $this->sortiesInscrits = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -268,13 +266,13 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     public function getSortiesInscrits(): Collection
     {
-        return $this->SortiesInscrits;
+        return $this->sortiesInscrits;
     }
 
     public function addSortiesInscrit(Sortie $sortiesInscrit): self
     {
-        if (!$this->SortiesInscrits->contains($sortiesInscrit)) {
-            $this->SortiesInscrits[] = $sortiesInscrit;
+        if (!$this->sortiesInscrits->contains($sortiesInscrit)) {
+            $this->sortiesInscrits[] = $sortiesInscrit;
             $sortiesInscrit->addInscrit($this);
         }
 
@@ -283,7 +281,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
 
     public function removeSortiesInscrit(Sortie $sortiesInscrit): self
     {
-        if ($this->SortiesInscrits->removeElement($sortiesInscrit)) {
+        if ($this->sortiesInscrits->removeElement($sortiesInscrit)) {
             $sortiesInscrit->removeInscrit($this);
         }
 
