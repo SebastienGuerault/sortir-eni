@@ -2,7 +2,10 @@
 
 namespace App\Form;
 
+use App\Entity\Campus;
+use App\Entity\Serie;
 use App\Entity\User;
+use Symfony\Bridge\Doctrine\Form\Type\EntityType;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\PasswordType;
@@ -39,6 +42,12 @@ class RegistrationFormType extends AbstractType
                 ],
             ])
             ->add('telephone')
+            ->add('campus',EntityType::class,[
+                //quelle est la classe à afficher ici ?
+                'class'=> Campus::class,
+                //quelle propriété utiliser pour les <option> dans la liste déroulante ?
+                'choice_label'=>'nom'
+            ])
         ;
     }
 
