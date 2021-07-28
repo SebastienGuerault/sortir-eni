@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+<nav>
+    <ul>
+        {# {{ path('nom du root') }} => pour rediriger vers une page#}
+        <li><a href="{{ path('main_home') }}" title="Home">Home</a></li>
+
+
+        {%  if app.user %} {# Si un utilisateur est connecté #}
+
+
+            <li><a href="{{ path("app_logout") }}" title="Logout" >Logout {{ app.user.firstname }}</a></li>
+
+            {% if is_granted("ROLE_ADMIN") %}
+                <li><a href="{{ path("admin_dashboard") }}" title="Admin dashboard"> admin</a></li>
+            {% endif %}
+
+        {%else %}
+
+            <li><a href="{{ path("app_login") }}" title="Login" >Login</a></li>
+            <li><a href="{{ path("app_register") }}" title="register" >Create account</a></li>
+
+        {%  endif %}
+
+    </ul>
+</nav>
