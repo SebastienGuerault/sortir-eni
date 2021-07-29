@@ -75,6 +75,11 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
      */
     private $sortiesInscrits;
 
+    /**
+     * @ORM\Column(type="string", length=30, nullable=true)
+     */
+    private $Pseudonyme;
+
     public function __construct()
     {
         $this->sorties = new ArrayCollection();
@@ -281,6 +286,18 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
         if ($this->sortiesInscrits->removeElement($sortiesInscrit)) {
             $sortiesInscrit->removeInscrit($this);
         }
+
+        return $this;
+    }
+
+    public function getPseudonyme(): ?string
+    {
+        return $this->Pseudonyme;
+    }
+
+    public function setPseudonyme(?string $Pseudonyme): self
+    {
+        $this->Pseudonyme = $Pseudonyme;
 
         return $this;
     }
