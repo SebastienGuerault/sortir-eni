@@ -1,29 +1,32 @@
 <!DOCTYPE html>
-<html>
+<html lang="fr">
     <head>
-
-
         <meta charset="UTF-8">
-        <title>{% block title %}Sortir avec l'ENI {% endblock %}</title>
-        {# Run `composer require symfony/webpack-encore-bundle`
-           and uncomment the following Encore helpers to start using Symfony UX #}
-        {% block stylesheets %}
-            {#{{ encore_entry_link_tags('app') }}#}
-        {% endblock %}
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>{% block title %}Sortir avec l'ENI{% endblock %}</title>
+
+        {# google font #}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" type="text/css" href="{{ asset('') }}">
+
+        <meta name="description" content="{% block metadescription %}Le site des sorties des étudiants de l'ENI !{% endblock %}">
 
         {% block javascripts %}
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
-
-    <header>
-        <div>
-            {% include('nav/nav.html.twig')  %}
-        </div>
-    </header>
-
     <body>
+        {% include('nav/nav.html.twig')  %}
 
         {% block body %}{% endblock %}
+        <footer>
+            <div class="container">
+                © Sortir avec l'ENI {{ "now"|date("Y") }}
+            </div>
+        </footer>
     </body>
 </html>
