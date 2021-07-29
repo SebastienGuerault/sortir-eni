@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <div>
-                {% include('nav/nav.html.twig')  %}
-        </div>
+
 
         <meta charset="UTF-8">
         <title>{% block title %}Sortir avec l'ENI {% endblock %}</title>
@@ -17,7 +15,15 @@
             {#{{ encore_entry_script_tags('app') }}#}
         {% endblock %}
     </head>
+
+    <header>
+        <div>
+            {% include('nav/nav.html.twig')  %}
+        </div>
+    </header>
+
     <body>
+
         {% block body %}{% endblock %}
     </body>
 </html>
