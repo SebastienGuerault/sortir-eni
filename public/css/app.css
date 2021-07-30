@@ -1,0 +1,14 @@
+html {
+    font-family: 'Karla', sans-serif;
+}
+
+
+.title_center {
+    text-align: center;
+}
+
+.form_user {
+    display: flex;
+    align-content: center;
+    flex-direction: column;
+}
