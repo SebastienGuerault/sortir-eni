@@ -4,26 +4,46 @@ namespace App\Controller;
 
 
 
-use App\Entity\User;
+use App\Form\ProfileType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
-/**
- * @Route("/profile")
- */
 
 class ProfileController extends AbstractController
 {
 
     /**
-     * Affichage du profil d'un utilisateur
+     * Modification du profil d'un utilisateur
      *
-     * @Route("/{id}", name="app_profile", requirements={"id": "\d+"})
+     * @Route("/modification", name="profile_edit")
      */
 
-    public function profile(User $user): Response
+    public function edit(Request $request): Response
     {
+        $em = $this->getDoctrine()->getManager();
+        $user = $this->getUser();
+
+        $form = $this->createForm(ProfileType::class, $user);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted()) {
+
+            if ($form->isValid()){
+                $em->persist($user);
+                $em->flush();
+
+                $this->addFlash('success', 'Profil modifié !');
+            }
+            else {
+                $em->refresh($user);
+            }
+        }
+
+        return $this->render('user/profile.html.twig', [
+            'registrationForm' => $form->createView(),
+        ]);
 
     }
 
