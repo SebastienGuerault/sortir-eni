@@ -1,31 +1,52 @@
 body {
-    display: block;
+    /*main display*/
+    display: flex;
     margin-left: auto;
     margin-right: auto;
     margin-bottom: auto;
-    width: 75%;
+
+    /*background photo - transparency & fixed display */
+    max-width: 800px;
     background-image:   linear-gradient(rgba(0, 0, 0, 0.9),
                         rgba(0, 0, 0, 0.9)),
                         url('../img/14_UltimateFrance__LavenderRoute_iStock-928423462-975x650.jpg');
     background-attachment: fixed;
     background-repeat: no-repeat;
     background-size: cover;
+    /*page centree */
     text-align: center;
     color: #AAAAAA;
 
 }
+
+/*main header inclus la barre de navigation*/
 header {
-
-}
-
-header .container {
-
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     padding: 10px 0 10px 0;
     text-align: center;
     position: relative;
 }
+
+.header-logo {
+    margin-left: 10px;
+    font-size: 1rem;
+    font-weight: normal;
+}
+
+.header-logo img {
+    max-width: 110px;
+    margin-right:10px;
+}
+
+nav ul li {
+    display: inline-block;
+    list-style: none;
+    padding-left: 20px;
+    margin-top: 55px;
+}
+
+/*overline option on all the links*/
 a {
     color: inherit;
     text-decoration: none;
@@ -33,23 +54,6 @@ a {
 
 a:hover {
     color: #bdb62a;
-}
-
-img {
-    max-width: 75%;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    padding-left: 40px;
-    justify-content: center;
-
-}
-
-nav li {
-    margin-right: 1rem;
-    text-align: center;
 }
 
 main {
