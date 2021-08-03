@@ -24,12 +24,17 @@ class CampusRepository extends ServiceEntityRepository
         $this->paginator = $paginator; // ajouté par ouss
     }
 
-    public function findPaginatedCampus(int $page = 1, int $numPerPage = 100) // ajouté par ouss
+    public function findPaginatedCampus(int $page = 1, int $numPerPage = 5) // ajouté par ouss
     {
+
         $qb = $this->createQueryBuilder('c')
             ->addOrderBy('c.nom', 'ASC');
 
-        return $this->paginator->paginate($qb, $page, $numPerPage);
+        return $this->paginator->paginate(
+            $qb, // Requête contenant les données à paginer (ici nos articles)
+            $page, //Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            $numPerPage // nombre de résultats par page
+        );
     }
 
     // /**

@@ -16,11 +16,16 @@ class VilleController extends AbstractController
 {
 
     /**
-     * @Route("/ville-liste", name="ville_liste", methods={"GET"}, requirements={"page": "\d+"})
+     * @Route("/ville-liste", name="ville_liste", methods={"GET"})
      */
-    public function index(VilleRepository $villeRepository, int $page = 1): Response
+    public function index(Request $request, VilleRepository $villeRepository): Response
     {
+        // On récupère l'attribut {'page':1} de la requete GET (envoyé par le twig du navigateur)
+        // l'attribut est toujours typé en string => le convertir en int et l'enregistrer dans la variable $page
+        $page= (int)$request->query->get('page');
+
         // Récuperer la liste des villes avec la requête findPaginatedCities()
+        // le paramètre $page change de valeur à chaque fois qu'on appuie sur le lien hypertexte de la page du tableau
         $paginatedVilles = $villeRepository->findPaginatedCities($page);
 
         // Afficher la page  index.html.twig + retourner notre liste 'villes'

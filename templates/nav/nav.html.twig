@@ -11,8 +11,8 @@
 
             {% if is_granted("ROLE_ADMIN") %}
                {# <li><a href="{{ path("admin_dashboard") }}" title="Admin dashboard"> admin</a></li> #}
-                <li><a href="{{ path("campus_liste") }}" title="Admin campus"> Campus</a></li>
-                <li><a href="{{ path("ville_liste") }}" title="Admin liste"> Villes</a></li>
+                <li><a href="{{ path("campus_liste",{'page':1}) }}" title="Admin campus"> Campus</a></li>
+                <li><a href="{{ path("ville_liste", {'page':1}) }}" title="Admin liste"> Villes</a></li>
             {% endif %}
 
         {%else %}

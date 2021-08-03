@@ -13,12 +13,18 @@ use Symfony\Component\Routing\Annotation\Route;
 class CampusController extends AbstractController
 {
     /**
-     * @Route("/campus-liste", name="campus_liste", methods={"GET"}, requirements={"page": "\d+"})
+     * @Route("/campus-liste", name="campus_liste", methods={"GET"})
      */
-    public function indexCampus(CampusRepository $campusRepository, int $page = 1): Response
+    public function indexCampus(Request $request,CampusRepository $campusRepository): Response
     {
+        // On récupère l'attribut {'page':1} de la requete GET (envoyé par le twig du navigateur)
+        // l'attribut est toujours typé en string => le convertir en int et l'enregistrer dans la variable $page
+        $page = (int)$request->query->get('page');
+
         // Récuperer la liste des villes avec la requête findPaginatedCities()
+        // le paramètre $page change de valeur à chaque fois qu'on appuie sur le lien hypertexte de la page du tableau
         $paginatedCampus = $campusRepository->findPaginatedCampus($page);
+
 
         // Afficher la page  index.html.twig + retourner notre liste 'villes'
         return $this->render('campus/index.html.twig', [
