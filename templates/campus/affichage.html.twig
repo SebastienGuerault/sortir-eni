@@ -1,0 +1,29 @@
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Campus{% endblock %}
+
+{% block body %}
+    <h1>Campus</h1>
+
+    <table class="table">
+        <tbody>
+        <tr>
+            <th>Id</th>
+            <td>{{ campus.id }}</td>
+        </tr>
+        <tr>
+            <th>Nom</th>
+            <td>{{ campus.nom }}</td>
+        </tr>
+
+
+        </tbody>
+    </table>
+
+    <a href="{{ path('campus_liste') }}">Retour à la liste</a>
+
+    <a href="{{ path('campus_modifier', {'id': campus.id}) }}"  class="button" >Modifier</a>
+
+    {{ include('campus/suppression_form.html.twig') }}
+{% endblock %}
