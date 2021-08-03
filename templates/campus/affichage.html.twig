@@ -8,10 +8,7 @@
 
     <table class="table">
         <tbody>
-        <tr>
-            <th>Id</th>
-            <td>{{ campus.id }}</td>
-        </tr>
+
         <tr>
             <th>Nom</th>
             <td>{{ campus.nom }}</td>
@@ -20,10 +17,15 @@
 
         </tbody>
     </table>
+    <br>
 
     <a href="{{ path('campus_liste') }}">Retour à la liste</a>
 
+    -
+
     <a href="{{ path('campus_modifier', {'id': campus.id}) }}"  class="button" >Modifier</a>
+
+    <br><br>
 
     {{ include('campus/suppression_form.html.twig') }}
 {% endblock %}

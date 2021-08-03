@@ -3,11 +3,13 @@
 {% block title %}Modification de la campus{% endblock %}
 
 {% block body %}
-    <h1>Modification campus</h1>
+    <h1>Modification du campus :</h1>
 
     {{ include('campus/_form.html.twig', {'button_label': 'Valider'}) }}  {# + bouton pour valider la modification #}
+    <br>
 
     <a href="{{ path('campus_liste') }}">Retour à la liste</a>
+    <br><br>
 
     {{ include('campus/suppression_form.html.twig') }}
 {% endblock %}

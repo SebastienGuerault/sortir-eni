@@ -76,4 +76,39 @@ footer {
 
 .flash-success{background-color:
         #bdb62a;
-        }
+}
+
+table {
+    table-layout: fixed;
+    width: 100%;
+    border-collapse: collapse;
+    border: 3px solid  white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: center
+}
+
+thead th, tfoot th, tfoot td {
+   /*background: linear-gradient(to bottom, rgba(0,0,0,0.1), rgba(0,0,0,0.5));*/
+    background-color: rgba(204, 102, 153,0.7);
+    border: 3px solid white;
+    color:white;
+
+}
+
+tbody tr:nth-child(odd) {
+    background-color: rgba(204, 102, 153,0.4);
+    color:white;
+
+}
+
+tbody tr:nth-child(even) {
+    background-color: rgba(204, 102, 153,0.1);
+    color:white;
+}
+
+.gras{
+    font-weight: bold;
+}

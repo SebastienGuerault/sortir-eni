@@ -13,8 +13,8 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
-            <th>Name</th>
+            <th>Nom</th>
+            <th>Actions</th>
 
 
         </tr>
@@ -22,12 +22,14 @@
         <tbody>
         {% for campus in campuss %}
             <tr>
-                <td>{{ campus.id }}</td>
-                <td>{{ campus.nom }}</td>
+
+                <td class="gras">{{ campus.nom }}</td>
+
 
 
                 <td>
                   <a href="{{ path('campus_afficher', {'id': campus.id}) }}">afficher</a>
+                    -
                     <a href="{{ path('campus_modifier', {'id': campus.id}) }}">modifier</a>
                 </td>
             </tr>
@@ -43,5 +45,7 @@
         {{ knp_pagination_render(campuss) }}
     </div>
 
-   <a href="{{ path('campus_ajouter') }}">Ajouter ville</a>
+    <br>
+
+   <a href="{{ path('campus_ajouter') }}" class="gras" >Ajouter ville</a>
 {% endblock %}

@@ -13,21 +13,23 @@
     <table class="table">
         <thead>
         <tr>
-            <th>Id</th>
+
             <th>Name</th>
             <th>CodePostal</th>
+            <th>Actions</th>
 
         </tr>
         </thead>
         <tbody>
         {% for ville in villes %}
             <tr>
-                <td>{{ ville.id }}</td>
-                <td>{{ ville.nom }}</td>
+
+                <td class="gras">{{ ville.nom }}</td>
                 <td>{{ ville.codePostal }}</td>
 
                 <td>
                   <a href="{{ path('ville_afficher', {'id': ville.id}) }}">afficher</a>
+                    -
                     <a href="{{ path('ville_modifier', {'id': ville.id}) }}">modifier</a>
                 </td>
             </tr>
@@ -43,5 +45,5 @@
         {{ knp_pagination_render(villes) }}
     </div>
 
-   <a href="{{ path('ville_ajouter') }}">Ajouter ville</a>
+   <a href="{{ path('ville_ajouter') }}" class="gras" >Ajouter ville</a>
 {% endblock %}
