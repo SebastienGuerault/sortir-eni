@@ -63,3 +63,17 @@ main {
 footer {
     padding: 40px 0;
 }
+
+.flash{
+    padding: 20px;
+    font-weight: bold;
+    font-size:1.4em;
+    margin: 1rem 0;
+    border-radius:5px;
+    color:black;
+    opacity:0.6;
+}
+
+.flash-success{background-color:
+        #bdb62a;
+        }

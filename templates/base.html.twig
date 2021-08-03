@@ -30,6 +30,15 @@
             {% include('nav/nav.html.twig')  %}
         </header>
 
+        {# lit et affiche tt les flash message d'un coup :#}
+        {% for label, messages in app.flashes%}
+            {% for message in messages %}
+                <div class="flash flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
         <main>
             {% block body %}{% endblock %}
         </main>
