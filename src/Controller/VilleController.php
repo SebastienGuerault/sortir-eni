@@ -54,7 +54,11 @@ class VilleController extends AbstractController
             // Message de succes affiché
             $this->addFlash('success', $ville->getNom() . " a bien été modifiée !");
 
-            return $this->redirectToRoute('ville_liste');
+            // On arajoute le paramètre 'page"=>1 dans l'URL : permet de donner l'information à la fonction findPaginatedCities()
+            return $this->redirectToRoute('ville_liste',[
+                'page'=>1
+            ]);
+
         }
 
 
@@ -76,7 +80,9 @@ class VilleController extends AbstractController
         if ($ville->getLieus()->count()>0){
             $this->addFlash('warning', $ville->getNom() . " est associée à des lieux, et ne peut être supprimée !");
 
-            return $this->redirectToRoute('ville_liste');
+            return $this->redirectToRoute('ville_liste',[
+                'page'=>1
+            ]);
         }
 
         //if ($this->isCsrfTokenValid('delete'.$ville->getId(), $request->request->get('_token'))) {
@@ -87,7 +93,9 @@ class VilleController extends AbstractController
             $this->addFlash('success','la ville a été supprimée');
 
 
-        return $this->redirectToRoute('ville_liste');
+        return $this->redirectToRoute('ville_liste',[
+            'page'=>1
+        ]);
     }
 
     /**
@@ -118,7 +126,9 @@ class VilleController extends AbstractController
 
             $this->addFlash('success', $ville->getNom() . " a bien été créée !");
 
-            return $this->redirectToRoute('ville_liste');
+            return $this->redirectToRoute('ville_liste',[
+                'page'=>1
+            ]);
         }
 
         return $this->render('ville/creation.html.twig', [

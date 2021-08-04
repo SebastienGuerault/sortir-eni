@@ -35,7 +35,7 @@ header {
 }
 
 .header-logo img {
-    max-width: 110px;
+    max-width: 140px;
     margin-right:10px;
 }
 
@@ -43,7 +43,8 @@ nav ul li {
     display: inline-block;
     list-style: none;
     padding-left: 20px;
-    margin-top: 55px;
+    margin-top: 70px;
+
 }
 
 /*overline option on all the links*/
@@ -118,8 +119,10 @@ tbody tr:nth-child(even) {
     margin-left: auto;
     margin-right: auto;
     width:150px;
+
 }
 .all_labels{
+
    margin-right:10px;
 
 }

@@ -52,7 +52,9 @@ class CampusController extends AbstractController
             // Message de succes affiché
             $this->addFlash('success', $campus->getNom() . " a bien été modifiée !");
 
-            return $this->redirectToRoute('campus_liste');
+            return $this->redirectToRoute('campus_liste',[
+                'page'=>1
+            ]);
         }
 
 
@@ -72,7 +74,9 @@ class CampusController extends AbstractController
         //si la ville est associée à des lieux ou a des utilisateurs, on ne peut pas la supprimer
         if (($campus->getSorties()->count()>0) && !empty($campus->getUsers())){
             $this->addFlash('warning', $campus->getNom() . " est associée à des sorties ou à des utilisateurs, et ne peut être supprimée !");
-            return $this->redirectToRoute('campus_liste');
+            return $this->redirectToRoute('campus_liste',[
+                'page'=>1
+            ]);
         }
 
        // if ($this->isCsrfTokenValid('delete'.$campus->getId(), $request->request->get('_token'))) {
@@ -81,7 +85,9 @@ class CampusController extends AbstractController
             $entityManager->flush();
 
 
-        return $this->redirectToRoute('campus_liste');
+        return $this->redirectToRoute('campus_liste',[
+            'page'=>1
+        ]);
     }
 
     /**
@@ -112,7 +118,9 @@ class CampusController extends AbstractController
 
             $this->addFlash('success', $campus->getNom() . " a bien été créé !");
 
-            return $this->redirectToRoute('campus_liste');
+            return $this->redirectToRoute('campus_liste',[
+                'page'=>1
+            ]);
         }
 
         return $this->render('campus/creation.html.twig', [
