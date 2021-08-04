@@ -74,7 +74,7 @@ class Sortie
     private $etat;
 
     /**
-     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="SortiesInscrits")
+     * @ORM\ManyToMany(targetEntity=User::class, inversedBy="sortiesInscrits")
      */
     private $inscrits;
 
