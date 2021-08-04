@@ -8,7 +8,7 @@
     {{ include('campus/_form.html.twig', {'button_label': 'Valider'}) }}  {# + bouton pour valider la modification #}
     <br>
 
-    <a href="{{ path('campus_liste') }}">Retour à la liste</a>
+    <a href="{{ path('campus_liste',{'page':1}) }}">Retour à la liste</a>
     <br><br>
 
     {{ include('campus/suppression_form.html.twig') }}

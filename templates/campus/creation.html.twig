@@ -7,5 +7,5 @@
 
     {{ include('campus/_form.html.twig') }}
     <br>
-    <a href="{{ path('campus_liste') }}">Retour à la liste</a>
+    <a href="{{ path('campus_liste',{'page':1}) }}">Retour à la liste</a>
 {% endblock %}
