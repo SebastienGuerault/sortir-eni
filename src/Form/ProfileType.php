@@ -63,10 +63,10 @@ class ProfileType extends AbstractType
                 'class' => Campus::class,
                 'choice_label' => 'name'
             ])
-            ->add('pictureUpload', FileType::class, [
+           /* ->add('pictureUpload', FileType::class, [
                 'label' => 'Ma Photo',
                 'attr' => ['placeholder' => 'Sélectionnez votre photo']
-            ])
+            ])*/
             ->add('submit', SubmitType::class, ['label' => 'Télécharger votre photo'])
         ;
     }
