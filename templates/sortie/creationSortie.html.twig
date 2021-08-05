@@ -3,4 +3,12 @@
 {% block title %}Creation d'une sortie!{% endblock %}
 
 {% block body %}
+    <h2 class="title_center">Creer ta sortie</h2>
+
+    <div class="form_alignement">
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        <button type="submit" class="btn">Cree la sortie</button>
+        {{ form_end(form) }}
+    </div>
 {% endblock %}

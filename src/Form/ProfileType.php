@@ -24,7 +24,7 @@ class ProfileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', null, ['label' => 'Pseudo'])
+            ->add('Pseudonyme', null, ['label' => 'Pseudo'])
             ->add('prenom', null, ['label' => 'Prénom'])
             ->add('nom', null, ['label' => 'Nom'])
             ->add('telephone', null, ['label' => 'Téléphone'])
@@ -61,13 +61,13 @@ class ProfileType extends AbstractType
             ->add('campus' , EntityType::class, [
                 'label' => 'Votre campus',
                 'class' => Campus::class,
-                'choice_label' => 'name'
+                'choice_label' => 'nom'
             ])
-            ->add('pictureUpload', FileType::class, [
-                'label' => 'Ma Photo',
-                'attr' => ['placeholder' => 'Sélectionnez votre photo']
-            ])
-            ->add('submit', SubmitType::class, ['label' => 'Télécharger votre photo'])
+//            ->add('pictureUpload', FileType::class, [
+//                'label' => 'Ma Photo',
+//                'attr' => ['placeholder' => 'Sélectionnez votre photo']
+//            ])
+//            ->add('submit', SubmitType::class, ['label' => 'Télécharger votre photo'])
         ;
     }
 
