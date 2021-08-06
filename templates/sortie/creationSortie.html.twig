@@ -6,9 +6,21 @@
     <h2 class="title_center">Creer ta sortie</h2>
 
     <div class="form_alignement">
-        {{ form_start(form) }}
-        {{ form_widget(form) }}
+        {{ form_start(eventForm) }}
+
+        {# Formulaire de sortie #}
+        {{ form_row(eventForm.nom) }}
+        {{ form_row(eventForm.dateHeureDebut) }}
+        {{ form_row(eventForm.duree) }}
+        {{ form_row(eventForm.dateLimiteInscription) }}
+        {{ form_row(eventForm.nbInscriptionsMax) }}
+        {{ form_row(eventForm.infosSortie) }}
+
+        {# Formulaire de Lieu #}
+
+        {{ form_widget(eventForm.lieu) }}
+
         <button type="submit" class="btn">Cree la sortie</button>
-        {{ form_end(form) }}
+        {{ form_end(eventForm) }}
     </div>
 {% endblock %}

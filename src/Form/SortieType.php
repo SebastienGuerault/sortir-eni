@@ -26,7 +26,7 @@ class SortieType extends AbstractType
 //                'id_reader'=>'id'
 //            ])
 //            ->add('campus')
-//            ->add('lieu')
+           ->add('lieu')
 //            ->add('etat')
 //            ->add('inscrits')
         ;
