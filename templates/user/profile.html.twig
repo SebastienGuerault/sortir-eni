@@ -4,4 +4,21 @@
 
 {% block body %}
 <h1>Mon profil</h1>
+    <div class="form_alignement">
+
+        <div class="affichage_user">
+
+            <div> <label >Pseudonyme :</label>  {{ user.Pseudonyme }} </div>
+            <div> <label>Nom :</label> {{ user.nom }}</div>
+            <div> <label>Prenom :</label> {{ user.prenom }}</div>
+            <div> <label>telephone :</label>  {{ user.telephone }} </div>
+            <div> <label>email :</label> {{user.email  }}  </div>
+
+
+        <div>
+
+
+    <br><br>
+
+    <a href="{{ path('profile_mofication')}}">Modifer Profil</a>
 {% endblock %}

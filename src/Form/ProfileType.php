@@ -30,13 +30,14 @@ class ProfileType extends AbstractType
             ->add('telephone', null, ['label' => 'Téléphone'])
             ->add('email')
             ->add('password', PasswordType::class, [
-                'label' => 'Mot de passe actuel',
-                'constraints' => [
-                    // vérification du mot de passe actuel
-                    new UserPassword([
-                        'message' => 'Votre mot de passe actuel est invalide !'
-                    ])
-                ]
+                'label' => 'Mot de passe actuel'
+                //La contrainte ci-dessous NE MARCHE PAS !!
+//                'constraints' => [
+//                    // vérification du mot de passe actuel
+//                    new UserPassword([
+//                        'message' => 'Votre mot de passe actuel est invalide !'
+//                    ])
+ //               ]
             ])
             ->add('new_password', RepeatedType::class, [
                 'mapped' => false,
@@ -63,6 +64,8 @@ class ProfileType extends AbstractType
                 'class' => Campus::class,
                 'choice_label' => 'nom'
             ])
+
+            // Chargement des photos à revoir, ne marche pas
 //            ->add('pictureUpload', FileType::class, [
 //                'label' => 'Ma Photo',
 //                'attr' => ['placeholder' => 'Sélectionnez votre photo']
