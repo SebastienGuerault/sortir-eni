@@ -9,9 +9,13 @@
         {# google font #}
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link href="https://fonts.googleapis.com/css2?family=Karla:wght@300;500&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Teko:wght@300&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" type="text/css" href="{{ asset('css/app.css') }}">
+        {# notre css #}
+        <link rel="stylesheet" href="{{  asset('css/app.css') }}">
+
+        {# le favicon #}
+        <link rel="icon" href="{{ asset('img/favicon.png') }}">
 
         <meta name="description" content="{% block metadescription %}Le site des sorties des étudiants de l'ENI !{% endblock %}">
 
@@ -20,13 +24,31 @@
         {% endblock %}
     </head>
     <body>
-        {% include('nav/nav.html.twig')  %}
+    <div class="container">
+        <header class="header-logo">
+            <h1><a href="{{ path('main_home') }}"><img src="{{ asset('img/logo_Sortir.com.svg') }}" alt="Logo de Sortir.com!"></a></h1>
+            {% include('nav/nav.html.twig')  %}
+        </header>
 
-        {% block body %}{% endblock %}
+        {# lit et affiche tt les flash message d'un coup :#}
+        {% for label, messages in app.flashes%}
+            {% for message in messages %}
+                <div class="flash flash-{{ label }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endfor %}
+
+        <main>
+            {% block body %}{% endblock %}
+        </main>
+
         <footer>
-            <div class="container">
+            <div>
                 © Sortir avec l'ENI {{ "now"|date("Y") }}
             </div>
         </footer>
+    </div>
+
     </body>
 </html>

@@ -1,13 +1,24 @@
 {%  extends 'base.html.twig' %}
 
-{% block title %}Modifier mon profil{% endblock %}
+{% block title %}Afficher mon profil{% endblock %}
 
 {% block body %}
-    <h2 class="title_center">Modifier mon profil</h2>
+<h1>Mon profil</h1>
+    <div class="form_alignement">
 
-    <div class="form_user">
-        {{ form(registrationForm) }}
-    </div>
+        <div class="affichage_user">
+
+            <div> <label >Pseudonyme :</label>  {{ user.Pseudonyme }} </div>
+            <div> <label>Nom :</label> {{ user.nom }}</div>
+            <div> <label>Prenom :</label> {{ user.prenom }}</div>
+            <div> <label>telephone :</label>  {{ user.telephone }} </div>
+            <div> <label>email :</label> {{user.email  }}  </div>
 
 
+        <div>
+
+
+    <br><br>
+
+    <a href="{{ path('profile_mofication')}}">Modifer Profil</a>
 {% endblock %}

@@ -1,0 +1,51 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}Campus index{% endblock %}
+
+{% block body %}
+    <h1>Campus index</h1>
+
+    <div class="navigation">
+        {{ knp_pagination_render(campuss) }}
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th>Nom</th>
+            <th>Actions</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for campus in campuss %}
+            <tr>
+
+                <td class="gras">{{ campus.nom }}</td>
+
+
+
+                <td>
+                  <a href="{{ path('campus_afficher', {'id': campus.id}) }}">afficher</a>
+                    -
+                    <a href="{{ path('campus_modifier', {'id': campus.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Pas d'enregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation">
+        {{ knp_pagination_render(campuss) }}
+    </div>
+
+    <br>
+
+   <a href="{{ path('campus_ajouter') }}" class="gras" >Ajouter ville</a>
+{% endblock %}

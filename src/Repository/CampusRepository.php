@@ -3,8 +3,10 @@
 namespace App\Repository;
 
 use App\Entity\Campus;
+use App\Entity\Ville;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
+use Knp\Component\Pager\PaginatorInterface;
 
 /**
  * @method Campus|null find($id, $lockMode = null, $lockVersion = null)
@@ -14,9 +16,25 @@ use Doctrine\Persistence\ManagerRegistry;
  */
 class CampusRepository extends ServiceEntityRepository
 {
-    public function __construct(ManagerRegistry $registry)
+    private PaginatorInterface $paginator; //ajouté par ouss
+
+    public function __construct(ManagerRegistry $registry, PaginatorInterface $paginator)
     {
         parent::__construct($registry, Campus::class);
+        $this->paginator = $paginator; // ajouté par ouss
+    }
+
+    public function findPaginatedCampus(int $page = 1, int $numPerPage = 5) // ajouté par ouss
+    {
+
+        $qb = $this->createQueryBuilder('c')
+            ->addOrderBy('c.nom', 'ASC');
+
+        return $this->paginator->paginate(
+            $qb, // Requête contenant les données à paginer (ici nos articles)
+            $page, //Numéro de la page en cours, passé dans l'URL, 1 si aucune page
+            $numPerPage // nombre de résultats par page
+        );
     }
 
     // /**
