@@ -1,0 +1,15 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Modification de la ville{% endblock %}
+
+{% block body %}
+    <h1>Modification ville</h1>
+
+    {{ include('ville/_form.html.twig', {'button_label': 'Valider'}) }}  {# + bouton pour valider la modification #}
+
+    <br>
+    <a href="{{ path('ville_liste',{'page':1})}}">Retour à la liste</a>
+    <br><br>
+
+    {{ include('ville/suppression_form.html.twig') }}
+{% endblock %}

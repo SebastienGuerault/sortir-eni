@@ -1,0 +1,50 @@
+{% extends 'base.html.twig' %}
+
+
+{% block title %}City index{% endblock %}
+
+{% block body %}
+    <h1>Ville index</h1>
+
+    <div class="navigation">
+        {{ knp_pagination_render(villes) }}
+    </div>
+
+    <table class="table">
+        <thead>
+        <tr>
+
+            <th>Name</th>
+            <th>CodePostal</th>
+            <th>Actions</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        {% for ville in villes %}
+            <tr>
+
+                <td class="gras">{{ ville.nom }}</td>
+                <td>{{ ville.codePostal }}</td>
+
+                <td>
+                  <a href="{{ path('ville_afficher', {'id': ville.id}) }}">afficher</a>
+                    -
+                    <a href="{{ path('ville_modifier', {'id': ville.id}) }}">modifier</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="8">Pas d'enregistrement</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="navigation">
+        {{ knp_pagination_render(villes) }}
+    </div>
+    <br>
+
+   <a href="{{ path('ville_ajouter') }}" class="gras" >Ajouter ville</a>
+{% endblock %}

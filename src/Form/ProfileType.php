@@ -24,19 +24,20 @@ class ProfileType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('username', null, ['label' => 'Pseudo'])
+            ->add('Pseudonyme', null, ['label' => 'Pseudo'])
             ->add('prenom', null, ['label' => 'Prénom'])
             ->add('nom', null, ['label' => 'Nom'])
             ->add('telephone', null, ['label' => 'Téléphone'])
             ->add('email')
             ->add('password', PasswordType::class, [
-                'label' => 'Mot de passe actuel',
-                'constraints' => [
-                    // vérification du mot de passe actuel
-                    new UserPassword([
-                        'message' => 'Votre mot de passe actuel est invalide !'
-                    ])
-                ]
+                'label' => 'Mot de passe actuel'
+                //La contrainte ci-dessous NE MARCHE PAS !!
+//                'constraints' => [
+//                    // vérification du mot de passe actuel
+//                    new UserPassword([
+//                        'message' => 'Votre mot de passe actuel est invalide !'
+//                    ])
+ //               ]
             ])
             ->add('new_password', RepeatedType::class, [
                 'mapped' => false,
@@ -61,13 +62,15 @@ class ProfileType extends AbstractType
             ->add('campus' , EntityType::class, [
                 'label' => 'Votre campus',
                 'class' => Campus::class,
-                'choice_label' => 'name'
+                'choice_label' => 'nom'
             ])
-           /* ->add('pictureUpload', FileType::class, [
-                'label' => 'Ma Photo',
-                'attr' => ['placeholder' => 'Sélectionnez votre photo']
-            ])*/
-            ->add('submit', SubmitType::class, ['label' => 'Télécharger votre photo'])
+
+            // Chargement des photos à revoir, ne marche pas
+//            ->add('pictureUpload', FileType::class, [
+//                'label' => 'Ma Photo',
+//                'attr' => ['placeholder' => 'Sélectionnez votre photo']
+//            ])
+//            ->add('submit', SubmitType::class, ['label' => 'Télécharger votre photo'])
         ;
     }
 
